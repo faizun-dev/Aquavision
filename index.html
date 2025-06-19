@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaVision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>AquaVision Dashboard</h1>
+		
+        
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+			    
+                <div class="video-section">
+				<div class="camera_list">
+                    <div >
+						  <select>
+						    <option>Camera 1</option>
+							<option>Camera 2</option>
+							<option>Camera 3</option>
+							<option>Camera 4</option>
+							<option>Camera 5</option>
+							<option>Camera 6</option>
+						  </select>
+                           
+                        </div>
+                </div>
+                    <div class="original-video">
+                        <h3>Original video</h3>
+                        <div id="originalVideo">
+                            <video width="100%" autoplay muted loop>
+                                <source src="C:\xampp\htdocs\Aquavision\Video_Sample_4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
+                    
+                <div class="data-statistics">
+					<h3>Data Statistics Chart</h3>
+					<canvas id="statisticsChart"></canvas>
+                </div>
+
+                
+                <div className="status-container">
+				  <h2>Feeding Status</h2>
+                    <div className="status-item">
+					<div class="ai-status">AI Hunger Detection: Active</div>
+                    <div class="status-item">
+						<div class="status-header">
+							<span>Hunger Status</span>
+							<span class="hunger-alert">Hungry</span>
+						</div>
+						<div class="detection-time">Detected at 10:25 AM</div>
+                    </div>
+					
+                        <div class="status-header">
+							<span>Last Fed</span>
+							<span>10:30 AM</span>
+							<br><br>
+						
+                        </div>
+                    </div>
+                    <div className="status-item">
+                        <div class="progress-container">
+						<span class="progress-text ">Food Dispensed: 50g</span>
+						<div class="progress-bar oxygen"></div>
+						
+                        </div>
+                    </div>
+					<br>
+					
+                    <div class="status-item">
+						<div class="status-header">
+							<span>Food Supply: 60% Remaining</span>
+							<div class="progress-bar temperature"></div>
+							
+						</div>
+                        
+                    </div>
+					<div class="status-item">
+						<div class="status-header">
+							<span>Success Rate : 80%</span>
+							<div class="progress-bar ph"></div>
+							
+						</div>
+                        
+                    </div>
+					<br>
+					<button class="button"> Add Feed Manually</button>
+					
+                    
+                </div>
+				<div className="status-container">
+				  <h2>Disease Detection</h2>
+                    <div className="status-item">
+					<div class="ai-status">AI Disease Detection: Active</div>
+                    <div class="status-item">
+						<div class="status-header">
+							<span>Predicted Disease</span>
+							<span class="hunger-alert">Ich</span>
+						</div>
+						
+                    </div>
+					
+                        
+                    </div>
+                    
+					
+                    <div class="status-item">
+						<div class="status-header">
+							<span>Confidence level: 80% Remaining</span>
+							<div class="progress-bar disease"></div>
+							
+						</div>
+                        
+                    </div>
+					
+					
+					
+                    
+                </div>
+
+                </div>
+            </div>
+
+            <!-- Middle Column -->
+            <div class="middle-column">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-content">
+                            <h4>Total</h4>
+                            <span class="digital-value">2</span>
+                        </div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-content">
+                            <h4>Average length</h4>
+                            <div class="value-container">
+                                <span class="digital-value">15.55</span>
+                                <span class="unit">mm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-content">
+                            <h4>Total History</h4>
+                            <span class="digital-value">500</span>
+                        </div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-content">
+                            <h4>Historical average length</h4>
+                            <div class="value-container">
+                                <span class="digital-value">15.00</span>
+                                <span class="unit">mm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detection-section">
+                    <h3>Intelligent fish detection</h3>
+                    <div id="detectionVideo">
+                        <video width="100%" autoplay muted loop>
+                            <source src="C:\xampp\htdocs\Aquavision\fishes_detection.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="real-time-data">
+                    <div class="fish-measurements">
+                        <div class="fish-measure">
+                            <img src="fish1.png" alt="Fish 1" width="50px" height="20px" style="border: 50%;">
+                            <span>L: 15.77 mm | W: 12.42 g</span>
+                        </div>
+                        <div class="fish-measure">
+                            <img src="fish2.png" alt="Fish 2"  width="50px" height="20px" style="border: 50%;">
+                            <span>L: 15.33 mm | W: 12.46 g</span>
+                        </div>
+                    </div>
+                    <div class="measurement-table">
+                        <table id="fishData">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Length</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <div class="water-quality">
+                    <h3>Water quality information</h3>
+                    <div class="quality-metrics">
+                        <div class="metric-bar">
+                            <div class="metric-label">
+                                <span>Temperature</span>
+                                <div class="metric-value">
+                                    <span class="value">17.5</span>
+                                    <span class="unit">℃</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar temperature"></div>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-label">
+                                <span>Salinity</span>
+                                <div class="metric-value">
+                                    <span class="value">32.3</span>
+                                    <span class="unit">PSU</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar salinity"></div>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-label">
+                                <span>Dissolved oxygen</span>
+                                <div class="metric-value">
+                                    <span class="value">9.04</span>
+                                    <span class="unit">mg/L</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar oxygen"></div>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-label">
+                                <span>pH</span>
+                                <div class="metric-value">
+                                    <span class="value">7.65</span>
+                                    <span class="unit">pH</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar ph"></div>
+                        </div>
+						<div class="metric-bar">
+                            <div class="metric-label">
+                                <span>Turbidity</span>
+                                <div class="metric-value">
+                                    <span class="value">25</span>
+                                    <span class="unit">NTU</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar turbidity"></div>
+                        </div>
+                    </div>
+                    <div class="charts-container">
+                        <canvas id="temperatureChart"></canvas>
+                        <canvas id="salinityChart"></canvas>
+                        <canvas id="oxygenChart"></canvas>
+                        <canvas id="phChart"></canvas>
+						<canvas id="turbidityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js is not loaded!');
+        } else {
+            console.log('Chart.js is loaded successfully');
+        }
+    </script>
+    <script src="scripts.js"></script>
+	
+    <style>
+        .status-container {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .status-bar {
+            flex: 1;
+            height: 4px;
+            margin: 0 15px;
+            border-radius: 2px;
+        }
+
+        .cyan { background: #00ffff; }
+        .purple { background: #b19cd9; }
+        .pink { background: #ff69b4; }
+        .yellow { background: #ffff00; }
+        .orange { background: #ffa500; }
+    </style>
+</body>
+</html> 
